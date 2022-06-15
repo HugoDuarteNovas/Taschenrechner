@@ -6,6 +6,7 @@ import './styles.css';
 //to start use command npm start after giving "cd youranime in the terminal"
 //to restart again close the site and press terminal --> new terminal
 
+
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose operation",
@@ -106,8 +107,17 @@ const result = (operation, operandOne, operandTwo) => {
       return Number(operandOne) * Number(operandOne);
     case '√':
       return Math.sqrt(operandOne);
+    case 'log2':
+      return Math.log2(operandOne);
     case 'log10':
       return Math.log10(operandOne);
+    case 'π':
+      return Number(operandOne) * Math.PI;
+    case 'ln2':
+      return Number(operandOne) * Math.LN2;
+    case 'ln10':
+      return Number(operandOne) * Math.LN10;
+
   }
 }
 
@@ -147,6 +157,12 @@ function App() {
         <OperationButton operation="²" dispatch={dispatch} />
         <OperationButton operation="√" dispatch={dispatch} />
 
+
+        <OperationButton operation="π" dispatch={dispatch} />
+        <OperationButton operation="ln2" dispatch={dispatch} />
+        <OperationButton operation="ln10" dispatch={dispatch} />
+
+        <OperationButton operation="log2" dispatch={dispatch} />
         <OperationButton operation="log10" dispatch={dispatch} />
         <button className="span-two" onClick={() => dispatch({ type: ACTIONS.EVALUATE })} >=</button>
 
@@ -159,4 +175,3 @@ function App() {
 }
 
 export default App;
-//min 18.00
